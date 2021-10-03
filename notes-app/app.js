@@ -1,6 +1,6 @@
 const fs = require('fs')
 const yargs = require('yargs')
-const getNotes = require('./notes')
+const notes = require('./notes')
 const utils = require('./utils')
 const validator = require('validator');
 const chalk = require('chalk');
@@ -8,14 +8,6 @@ const chalk = require('chalk');
 const greenBold = chalk.green.inverse.bold
 
 
-/* console.log(greenBold(validator.isEmail('ffff@ll.com')))
-console.log(chalk.blue('Hello world!'));
-console.log(greenBold('hola amigos'))
-console.log(getNotes)
-console.log(utils.name)
-console.log(utils.add(1,8))
-const command = process.argv[2]
- */
 const print = console.log
 //////// ADD A NOTE //////////
 yargs.command({
@@ -35,8 +27,8 @@ yargs.command({
 
 
     }, 
-    handler: function(argv){
-        print(`Title: ${argv.title} and Body: ${argv.body}`)
+    handler: (argv) => {
+        notes.addNote(argv.title, argv.body)        
     }
 })
 //////// REMOVE A NOTE //////////
