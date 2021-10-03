@@ -1,0 +1,27 @@
+{
+  "name": "nodejs_course",
+  "version": "1.0.0",
+  "description": "This is a set of challenges while learning NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexuko/NodeJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexuko/NodeJS/issues"
+  },
+  "homepage": "https://github.com/alexuko/NodeJS#readme",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "fs": "*",
+    "nodemon": "^2.0.13",
+    "validator": "^13.6.0",
+    "yargs": "^17.0.1"
+  }
+}

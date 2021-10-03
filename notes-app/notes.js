@@ -1,3 +1,3 @@
-const getNotes = () => 'this are my notes'
+const getNotes = 'this are my notes'
 
-module.exports = getNotes()
+module.exports = getNotes
