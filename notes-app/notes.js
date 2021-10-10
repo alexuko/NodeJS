@@ -3,6 +3,27 @@ const chalk = require('chalk');
 
 const getNotes = () => 'this are my notes'
 
+
+const removeNote = (title) => {
+    const myNotes = loadNotes();
+
+    const noteToRemove = myNotes.findIndex((note)=>{
+        return title === note.title;
+    })
+    //if the note was found
+    if(noteToRemove >= 0){
+        myNotes.splice(noteToRemove,1)
+        console.log(chalk.yellow.bold(`Note "${title}" was removed`))
+        saveNotes(myNotes)
+    }
+    //if the note was not found 
+    else{
+        console.log(chalk.red.bold('Note was not found, Nothing to remove'))
+
+    }
+    console.log(myNotes)
+    
+}
 const addNote = ( title, body) => {
     const notes = loadNotes()
 
@@ -45,5 +66,6 @@ const loadNotes = () => {
 
 module.exports = {
     getNotes,
-    addNote
+    addNote,
+    removeNote
 }

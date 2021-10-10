@@ -4,6 +4,7 @@ const notes = require('./notes')
 const utils = require('./utils')
 const validator = require('validator');
 const chalk = require('chalk');
+const { strict, string } = require('yargs');
 
 const greenBold = chalk.green.inverse.bold
 
@@ -15,7 +16,7 @@ yargs.command({
     describe:'add a note',
     builder:{
         title:{
-            describe:'Note titel',
+            describe:'Note title',
             demandOption: true,
             type: 'string'
         },
@@ -35,8 +36,15 @@ yargs.command({
 yargs.command({
     command:'remove',
     describe:'remove a note',
-    handler: function(){
-        print('removing a note')
+    builder: {
+        title:{
+            describe:'Note to remove',
+            demandOption:true,
+            type: string
+        }
+    },
+    handler: (argv) => {
+        notes.removeNote(argv.title)
     }
 })
 //////// LIST A NOTE //////////
